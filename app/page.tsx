@@ -228,7 +228,9 @@ export default function Home() {
         {/* CTA */}
         <motion.div variants={itemVariants} className="w-full mt-1">
           <a
-            href="mailto:info@rayo.consulting?subject=Richiesta%20Call%20Gratuita"
+            href="https://call.rayo.consulting/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative flex items-center justify-center gap-2.5 w-full py-4 rounded-2xl bg-accent text-white font-bold text-sm tracking-[0.06em] uppercase overflow-hidden transition-all duration-300 hover:bg-accent-hover hover:-translate-y-[2px] hover:shadow-[0_8px_32px_rgba(37,99,235,0.35)]"
           >
             {/* subtle shine */}
