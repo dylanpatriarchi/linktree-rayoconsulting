@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe, Mail } from "lucide-react";
+import { ArrowUpRight, Globe, Mail, Newspaper } from "lucide-react";
 import Image from "next/image";
 
 /* ───────── Brand icons (outline style, matching Lucide) ───────── */
@@ -94,6 +94,14 @@ const links = [
     icon: Globe,
     iconBg: "rgba(37,99,235,0.10)",
     iconColor: "#93c5fd",
+  },
+  {
+    name: "Newsletter",
+    handle: "rayo.consulting/newsletter",
+    href: "https://www.rayo.consulting/newsletter",
+    icon: Newspaper,
+    iconBg: "rgba(139,92,246,0.10)",
+    iconColor: "#c4b5fd",
   },
   {
     name: "Email",
