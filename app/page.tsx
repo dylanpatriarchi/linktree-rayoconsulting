@@ -1,10 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Globe, Mail, Newspaper } from "lucide-react";
+import {
+  ArrowUpRight,
+  BookOpen,
+  Globe,
+  Mail,
+  Phone,
+  Share2,
+  Sparkles,
+} from "lucide-react";
 import Image from "next/image";
 
-/* ───────── Brand icons (outline style, matching Lucide) ───────── */
+/* ───────── Brand icons ───────── */
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -26,223 +34,141 @@ function InstagramIcon({ className }: { className?: string }) {
 
 function LinkedInIcon({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect width="4" height="12" x="2" y="9" rx="0.5" />
-      <circle cx="4" cy="4" r="2" />
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
   );
 }
 
-/* ───────── Animation variants ───────── */
+/* ───────── Animations ───────── */
 
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.09,
-      delayChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
   },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 18, scale: 0.98 },
+const item = {
+  hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.55,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
+    transition: { duration: 0.45, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 };
 
 /* ───────── Data ───────── */
 
-const links = [
-  {
-    name: "Instagram",
-    handle: "@rayo.consulting",
-    href: "https://www.instagram.com/rayo.consulting",
-    icon: InstagramIcon,
-    iconBg: "rgba(225,48,108,0.10)",
-    iconColor: "#f472b6",
-  },
-  {
-    name: "LinkedIn",
-    handle: "Rayo Consulting",
-    href: "https://www.linkedin.com/company/rayoconsulting",
-    icon: LinkedInIcon,
-    iconBg: "rgba(10,102,194,0.10)",
-    iconColor: "#60a5fa",
-  },
-  {
-    name: "Sito Web",
-    handle: "rayo.consulting",
-    href: "https://www.rayo.consulting",
-    icon: Globe,
-    iconBg: "rgba(37,99,235,0.10)",
-    iconColor: "#93c5fd",
-  },
-  {
-    name: "Newsletter",
-    handle: "rayo.consulting/newsletter",
-    href: "https://www.rayo.consulting/newsletter",
-    icon: Newspaper,
-    iconBg: "rgba(139,92,246,0.10)",
-    iconColor: "#c4b5fd",
-  },
-  {
-    name: "Email",
-    handle: "info@rayo.consulting",
-    href: "mailto:info@rayo.consulting",
-    icon: Mail,
-    iconBg: "rgba(148,163,184,0.10)",
-    iconColor: "#cbd5e1",
-  },
+const socials = [
+  { icon: InstagramIcon, href: "https://www.instagram.com/rayo.consulting", label: "Instagram" },
+  { icon: LinkedInIcon, href: "https://www.linkedin.com/company/rayoconsulting", label: "LinkedIn" },
+  { icon: Globe, href: "https://www.rayo.consulting", label: "Sito Web" },
+  { icon: BookOpen, href: "https://www.rayo.consulting/newsletter", label: "Newsletter" },
+  { icon: Mail, href: "mailto:info@rayo.consulting", label: "Email" },
 ];
 
 /* ───────── Page ───────── */
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden px-5 py-12">
-      {/* ── Animated mesh background ── */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute -top-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full bg-blue-600/[0.12] blur-[120px] animate-mesh-move" />
-        <div className="absolute top-[40%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-indigo-600/[0.08] blur-[100px] animate-mesh-move [animation-delay:-7s]" />
-        <div className="absolute -bottom-[10%] right-[20%] w-[50vw] h-[50vw] rounded-full bg-sky-500/[0.06] blur-[90px] animate-mesh-move [animation-delay:-14s]" />
-      </div>
-
-      {/* ── Noise texture ── */}
-      <div
-        className="fixed inset-0 z-[1] pointer-events-none opacity-[0.025]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }}
-      />
-
-      {/* ── Mountains ── */}
-      <div className="fixed bottom-0 left-0 w-full z-[2] pointer-events-none leading-none opacity-90">
-        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" className="block w-full h-auto">
-          <defs>
-            <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#080a12" />
-              <stop offset="100%" stopColor="#030305" />
-            </linearGradient>
-          </defs>
-          <path fill="url(#m1)" fillOpacity="0.9" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,250.7C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
-          <path fill="#06070d" fillOpacity="0.5" d="M0,288L60,272C120,256,240,224,360,213.3C480,203,600,213,720,234.7C840,256,960,288,1080,277.3C1200,267,1320,213,1380,186.7L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z" />
-        </svg>
+    <div className="relative min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
+      {/* ── Hero image ── */}
+      <div className="relative w-full h-[48vh] max-h-[480px]">
+        <Image
+          src="/hero.png"
+          alt="Rayo Consulting"
+          fill
+          priority
+          className="object-cover rounded-b-[2.5rem]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-[#0a0a0a] rounded-b-[2.5rem]" />
       </div>
 
       {/* ── Content ── */}
       <motion.main
-        className="relative z-10 w-full max-w-[420px] flex flex-col items-center gap-6"
-        variants={containerVariants}
+        className="relative z-10 max-w-md mx-auto px-5 pb-12 -mt-10 flex flex-col items-center gap-5"
+        variants={container}
         initial="hidden"
         animate="visible"
       >
-        {/* Logo */}
-        <motion.div variants={itemVariants} className="relative group">
-          <div className="absolute inset-0 rounded-[2rem] bg-accent/20 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          <div className="relative w-[96px] h-[96px] rounded-[2rem] glass flex items-center justify-center shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]">
-            <Image
-              src="/logo.png"
-              alt="Rayo Consulting"
-              width={52}
-              height={52}
-              className="object-contain drop-shadow-lg"
-            />
-          </div>
+        {/* Logo avatar — no background */}
+        <motion.div variants={item}>
+          <Image
+            src="/logo.png"
+            alt="Rayo Consulting"
+            width={88}
+            height={88}
+            className="object-contain drop-shadow-2xl"
+          />
         </motion.div>
 
-        {/* Brand text */}
-        <motion.div variants={itemVariants} className="text-center space-y-1">
-          <h1 className="text-2xl font-bold tracking-tight text-text-primary">
+        {/* Name & bio */}
+        <motion.div variants={item} className="text-center -mt-1">
+          <h1 className="text-[1.65rem] font-bold tracking-tight">
             Rayo Consulting
           </h1>
-          <p className="text-sm font-medium text-text-secondary leading-relaxed max-w-[280px]">
+          <p className="mt-0.5 text-sm font-medium text-white/50">
             Trasformiamo caos operativo in sistemi chiari con l&apos;AI.
           </p>
         </motion.div>
 
-        {/* Links */}
+        {/* Social icons */}
+        <motion.div variants={item} className="flex items-center gap-3">
+          {socials.map((s) => {
+            const Icon = s.icon;
+            return (
+              <a
+                key={s.label}
+                href={s.href}
+                target={s.href.startsWith("http") ? "_blank" : undefined}
+                rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={s.label}
+                className="w-12 h-12 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-white transition-all duration-200 hover:bg-white/[0.14] hover:border-white/20 hover:-translate-y-0.5"
+              >
+                <Icon className="w-[18px] h-[18px]" />
+              </a>
+            );
+          })}
+        </motion.div>
+
+        {/* Big buttons — Apple style */}
         <motion.nav
-          variants={containerVariants}
+          variants={container}
           initial="hidden"
           animate="visible"
           className="w-full flex flex-col gap-3 mt-1"
           aria-label="Collegamenti"
         >
-          {links.map((link) => {
-            const Icon = link.icon;
-            return (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                variants={itemVariants}
-                className="group relative flex items-center gap-4 w-full px-2 py-2 pr-4 rounded-2xl glass transition-all duration-300 hover:glass-hover hover:-translate-y-[2px]"
-              >
-                {/* Icon pill */}
-                <span
-                  className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center border border-white/[0.06] transition-colors duration-300"
-                  style={{ background: link.iconBg }}
-                >
-                  <Icon
-                    className="w-5 h-5 transition-colors duration-300"
-                    style={{ color: link.iconColor }}
-                  />
-                </span>
+          {/* Newsletter */}
+          <motion.a
+            href="https://www.rayo.consulting/newsletter"
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={item}
+            className="group flex items-center justify-between w-full px-6 py-5 rounded-[1.25rem] bg-[#1c1c1e] text-white transition-all duration-300 hover:bg-[#262628] hover:-translate-y-[1px] hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
+          >
+            <span className="text-base font-semibold tracking-tight">Newsletter</span>
+            <ArrowUpRight className="w-[18px] h-[18px] text-white/30 transition-all duration-300 group-hover:text-white/80 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
+          </motion.a>
 
-                {/* Text */}
-                <span className="flex-1 min-w-0 flex flex-col">
-                  <span className="text-[0.95rem] font-semibold text-text-primary tracking-tight">
-                    {link.name}
-                  </span>
-                  <span className="text-xs font-medium text-text-tertiary truncate">
-                    {link.handle}
-                  </span>
-                </span>
-
-                {/* Arrow */}
-                <ArrowUpRight className="w-[18px] h-[18px] text-text-tertiary shrink-0 transition-all duration-300 group-hover:text-text-primary group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
-              </motion.a>
-            );
-          })}
-        </motion.nav>
-
-        {/* CTA */}
-        <motion.div variants={itemVariants} className="w-full mt-1">
-          <a
+          {/* Call */}
+          <motion.a
             href="https://call.rayo.consulting/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative flex items-center justify-center gap-2.5 w-full py-4 rounded-2xl bg-accent text-white font-bold text-sm tracking-[0.06em] uppercase overflow-hidden transition-all duration-300 hover:bg-accent-hover hover:-translate-y-[2px] hover:shadow-[0_8px_32px_rgba(37,99,235,0.35)]"
+            variants={item}
+            className="group flex items-center justify-between w-full px-6 py-5 rounded-[1.25rem] bg-white text-[#0a0a0a] transition-all duration-300 hover:bg-white/90 hover:-translate-y-[1px] hover:shadow-[0_12px_40px_rgba(255,255,255,0.06)]"
           >
-            {/* subtle shine */}
-            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            <span className="relative">Prenota una call gratuita</span>
-            <ArrowUpRight className="relative w-4 h-4 transition-transform duration-300 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
-          </a>
-        </motion.div>
+            <span className="text-base font-semibold tracking-tight">Prenota una call gratuita</span>
+            <ArrowUpRight className="w-[18px] h-[18px] text-black/30 transition-all duration-300 group-hover:text-black/70 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
+          </motion.a>
+        </motion.nav>
 
         {/* Footer */}
-        <motion.footer variants={itemVariants} className="pt-4 text-center">
-          <p className="text-[11px] font-medium text-text-tertiary/70 tracking-wide">
+        <motion.footer variants={item} className="text-center pt-1">
+          <p className="text-[11px] font-medium text-white/25 tracking-wide">
             © {new Date().getFullYear()} Rayo Consulting
           </p>
         </motion.footer>
