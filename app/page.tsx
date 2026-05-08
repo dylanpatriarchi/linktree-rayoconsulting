@@ -62,7 +62,7 @@ const item = {
 /* ───────── Data ───────── */
 
 const socials = [
-  { icon: InstagramIcon, href: "https://www.instagram.com/rayo.consulting", label: "Instagram" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/dylan.rayoconsulting/", label: "Instagram" },
   { icon: LinkedInIcon, href: "https://www.linkedin.com/company/rayoconsulting", label: "LinkedIn" },
   { icon: Globe, href: "https://www.rayo.consulting", label: "Sito Web" },
   { icon: BookOpen, href: "https://www.rayo.consulting/newsletter", label: "Newsletter" },
