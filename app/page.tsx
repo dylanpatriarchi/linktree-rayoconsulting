@@ -141,18 +141,6 @@ export default function Home() {
           className="w-full flex flex-col gap-3 mt-1"
           aria-label="Collegamenti"
         >
-          {/* Newsletter */}
-          <motion.a
-            href="https://www.rayo.consulting/newsletter"
-            target="_blank"
-            rel="noopener noreferrer"
-            variants={item}
-            className="group flex items-center justify-between w-full px-6 py-5 rounded-[1.25rem] bg-[#1c1c1e] text-white transition-all duration-300 hover:bg-[#262628] hover:-translate-y-[1px] hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
-          >
-            <span className="text-base font-semibold tracking-tight">Newsletter</span>
-            <ArrowUpRight className="w-[18px] h-[18px] text-white/30 transition-all duration-300 group-hover:text-white/80 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
-          </motion.a>
-
           {/* Call */}
           <motion.a
             href="https://call.rayo.consulting/"
@@ -163,6 +151,30 @@ export default function Home() {
           >
             <span className="text-base font-semibold tracking-tight">Prenota una call gratuita</span>
             <ArrowUpRight className="w-[18px] h-[18px] text-black/30 transition-all duration-300 group-hover:text-black/70 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
+          </motion.a>
+
+          {/* Community */}
+          <motion.a
+            href="https://community.rayo.consulting/"
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={item}
+            className="group flex items-center justify-between w-full px-6 py-5 rounded-[1.25rem] bg-[#1c1c1e] text-white transition-all duration-300 hover:bg-[#262628] hover:-translate-y-[1px] hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
+          >
+            <span className="text-base font-semibold tracking-tight">Community gratuita</span>
+            <ArrowUpRight className="w-[18px] h-[18px] text-white/30 transition-all duration-300 group-hover:text-white/80 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
+          </motion.a>
+
+          {/* Newsletter */}
+          <motion.a
+            href="https://www.rayo.consulting/newsletter"
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={item}
+            className="group flex items-center justify-between w-full px-6 py-5 rounded-[1.25rem] bg-[#1c1c1e] text-white transition-all duration-300 hover:bg-[#262628] hover:-translate-y-[1px] hover:shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
+          >
+            <span className="text-base font-semibold tracking-tight">Newsletter</span>
+            <ArrowUpRight className="w-[18px] h-[18px] text-white/30 transition-all duration-300 group-hover:text-white/80 group-hover:translate-x-[2px] group-hover:-translate-y-[2px]" />
           </motion.a>
         </motion.nav>
 
